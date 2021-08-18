@@ -1,9 +1,8 @@
-import requests
-from bs4 import BeautifulSoup
-import xlwt
-import xlrd
-from xlutils import copy
 import time
+import requests
+import win32api
+import xlwt
+from bs4 import BeautifulSoup
 
 
 # Count String Length
@@ -81,6 +80,7 @@ for i in range(0, 100):
     worksheet.write(i + 1, 4, barrage_number[i])
 
 # Save File
-workbook.save(str(time.strftime('%Y-%m-%d-%H.%M', time.localtime(time.time())))+' BiliBili播放排行榜.xls')
+workbook.save(str(time.strftime('%Y-%m-%d-%H.%M', time.localtime(time.time()))) + ' BiliBili播放排行榜.xls')
 
-
+# Finish MessageBox
+win32api.MessageBox(0, "获取成功！", "Successfully Get！")
